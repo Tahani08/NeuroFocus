@@ -194,7 +194,7 @@
 
 /* ======== CABIN AESTHETIC ================ */
 .app.cabin {
-  background: url('./assets/CABIN.png') no-repeat center center fixed;
+  background: url('/assets/CABIN.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Josefin Sans', sans-serif; /* optional cozy font */
 }
@@ -245,7 +245,7 @@
 
 /* ======== MEADOW AESTHETIC ================ */
 .app.meadow {
-  background: url('./assets/MEADOW.png') no-repeat center center fixed;
+  background: url('/assets/MEADOW.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Montserrat', sans-serif;
 }
@@ -293,7 +293,7 @@
 
 /* ======== STARS AESTHETIC ================ */
 .app.stars {
-  background: url('./assets/STARS.png') no-repeat center center fixed;
+  background: url('/assets/STARS.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Josefin Sans', sans-serif; /* or any dreamy font */
 }
@@ -345,7 +345,7 @@
 
 /* ======== VINTAGE JAZZ AESTHETIC ================ */
 .app.vintage-jazz {
-  background: url('./assets/JAZZ2.jpeg') no-repeat center center fixed;
+  background: url('/assets/JAZZ2.jpeg') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Georgia', serif; /* Optional vintage-feel font */
 }
@@ -396,7 +396,7 @@
 
 /* ======== SNOW AESTHETIC ================ */
 .app.snow {
-  background: url('./assets/SNOWW.png') no-repeat center center fixed;
+  background: url('/assets/SNOWW.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Quicksand', sans-serif; /* Optional cozy winter font */
 }
@@ -448,7 +448,7 @@
 
 /* ======== LIBRARY AESTHETIC ================ */
 .app.library {
-  background: url('./assets/LIBRARY.png') no-repeat center center fixed;
+  background: url('/assets/LIBRARY.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Georgia', serif; /* Optional: scholarly look */
 }
@@ -498,7 +498,7 @@
 
 /* ======== OCEAN AESTHETIC ================ */
 .app.ocean {
-  background: url('./assets/OCEAN1.png') no-repeat center center fixed;
+  background: url('/assets/OCEAN1.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Segoe UI', sans-serif; /* Clean, airy font */
 }
@@ -549,7 +549,7 @@
 
 /* ======== CAFE AESTHETIC ================ */
 .app.cafe {
-  background: url('./assets/CAFE2.png') no-repeat center center fixed;
+  background: url('/assets/CAFE2.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Georgia', serif; /* classic coffeehouse feel */
 }
@@ -599,7 +599,7 @@
 
 /* ======== ISLAND AESTHETIC ================ */
 .app.island {
-  background: url('./assets/ISLAND2.png') no-repeat center center fixed;
+  background: url('/assets/ISLAND2.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Quicksand', sans-serif; /* light tropical feel */
 }
@@ -649,7 +649,7 @@
 
 /* ======== GLAMOUR AESTHETIC ================ */
 .app.glamour {
-  background: url('./assets/GLAMOUR2.png') no-repeat center center fixed;
+  background: url('/assets/GLAMOUR2.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Playfair Display', serif; /* Optional: classy serif font */
 }
