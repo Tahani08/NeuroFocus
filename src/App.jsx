@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PomodoroTimer from "./PomodoroTimer";
+import PomodoroTimer from "./PomodoroTimer.jsx";
 import ToDoList from "./components/ToDoList";
 import SettingsModal from "./components/SettingsModal";
 import AestheticPicker from "./components/AestheticPicker";
