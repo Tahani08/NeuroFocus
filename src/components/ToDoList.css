@@ -1,0 +1,33 @@
+.todo-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  width: 250px;
+  color: white;
+}
+
+.todo-list label {
+  color: white;
+  font-size: 1rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.todo-item input[type="text"] {
+  margin-left: 0.5rem;
+  flex: 1;
+  padding: 0.3rem 0.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  color: white;
+}
+
+.todo-item input[type="text"].completed {
+  text-decoration: line-through;
+  color: #aaa;
+}

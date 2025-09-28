@@ -1,0 +1,96 @@
+.aesthetic-picker {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+  width: 300px;
+  min-height: 330px;
+}
+
+.aesthetic-picker h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  margin-top: 0rem;
+}
+
+.aesthetic-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Remove default background from all buttons */
+.aesthetic-buttons button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in-out;
+  background: none;
+  color: inherit;
+}
+
+/* Shared aesthetic button style */
+.aesthetic-btn {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover only scales – does NOT change colors */
+.aesthetic-btn:hover {
+  transform: scale(1.05);
+}
+
+/* === Theme Colors === */
+
+.aesthetic-btn.snow {
+  background-color: #B4D9EB;
+  color: #1f2937;
+}
+
+.aesthetic-btn.meadow {
+  background-color: #9ED99B;
+  color: #1b4332;
+}
+
+.aesthetic-btn.ocean {
+  background-color: #4DA7B9;
+  color: #fff;
+}
+
+.aesthetic-btn.island {
+  background-color: #136878;
+  color: #fff;
+}
+
+.aesthetic-btn.stars {
+  background-color: #7a48ee;
+  color: #fff;
+}
+
+.aesthetic-btn.sunburst {
+  background-color: #e21d58;
+  color: #fff;
+}
+
+.aesthetic-btn.cabin {
+  background-color: #d85432;
+  color: #fff;
+}
+
+.aesthetic-btn.glamour{
+  background-color: #6f1305;
+  color: #fffbe6;
+}
+
+
+
+
+

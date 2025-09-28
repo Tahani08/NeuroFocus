@@ -1,0 +1,782 @@
+.app {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Top Left: Settings + Quote */
+.top-left {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.icon-button {
+  font-size: 1.5rem;
+  background: none;
+  border: 2px solid white;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+/* Center: Pomodoro */
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pomodoro-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.pomodoro-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.pomodoro-timer-box {
+  width: 360px;
+  padding: 1rem 2rem 1rem 2rem;
+  background-color: #333;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  max-height: 450px;
+  position: relative; /* needed for top-right settings button */
+}
+
+.timer-display {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+}
+
+.pomodoro-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pomodoro-buttons button,
+.start-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pomodoro-buttons button:hover,
+.start-button:hover {
+  background-color: #555;
+}
+
+/* Settings Button Inside Pomodoro Box */
+.settings-top-right {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 5;
+}
+
+.settings-button {
+  background: #444;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: white;
+  padding: 0.6rem 0.7rem;
+  cursor: pointer;
+}
+
+.settings-button:hover {
+  background-color: #666;
+}
+
+
+/* Right Side */
+.right-top {
+  position: absolute;
+  top: 2rem;
+  right: 4rem;
+  width: 300px;
+}
+
+.todo-list {
+  width: 100%;
+}
+
+.right-bottom {
+  position: absolute;
+  bottom: 2rem;
+  right: 4rem;
+  width: 300px;
+}
+
+.notes-box {
+  width: 100%;
+}
+
+.notes-box textarea {
+  width: 83.5%;
+  height: 200px;
+  background: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  resize: vertical;
+  padding: 1.5rem;
+  font-size: 1rem;
+}
+
+/* Bottom Left: Aesthetic Picker */
+.bottom-left {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+}
+
+/* Shared card style */
+.card {
+  background-color: rgba(255, 255, 255, 0.12);
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+  backdrop-filter: blur(4px);
+}
+/* Style section titles */
+.card h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 0;         /*  remove space above title */
+  margin-bottom: 1rem; /* keep slight space below title */
+  color: white;
+}
+
+
+
+/* Responsive fallback */
+@media screen and (max-width: 768px) {
+  .notes-box textarea,
+  .card {
+    width: 90vw;
+  }
+}
+
+
+/* ======== CABIN AESTHETIC ================ */
+.app.cabin {
+  background: url('./assets/CABIN.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Josefin Sans', sans-serif; /* optional cozy font */
+}
+
+/* Optional: dark cozy overlay */
+.app.cabin::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 10, 0, 0.4);
+  z-index: -1;
+}
+
+
+/* Cabin widget styling — burnt orange transparent boxes */
+.app.cabin .card,
+.app.cabin .pomodoro-timer-box,
+.app.cabin .bottom-left,
+.app.cabin textarea {
+  background-color: rgba(101, 67, 33, 0.40); /* Burnt orange with transparency */
+  color: #fff5e1;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Optional: notes box and input colors */
+.app.cabin textarea,
+.app.cabin input[type="text"] {
+  background-color: rgba(255, 248, 220, 0.15); /* Very light warm fill */
+  color: #fff5e1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Optional: tweak buttons inside timer only */
+.app.cabin .pomodoro-wrapper button {
+  background-color: rgba(160, 82, 45, 0.9); /* Sienna */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+.app.cabin .pomodoro-wrapper button:hover {
+  background-color: rgba(160, 82, 45, 1);
+}
+
+/* ======== MEADOW AESTHETIC ================ */
+.app.meadow {
+  background: url('./assets/MEADOW.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Optional overlay */
+.app.meadow::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(253, 242, 249, 0.975); /* soft pinkish-white tint */
+  z-index: -1;
+}
+
+.app.meadow .card,
+.app.meadow .pomodoro-timer-box,
+.app.meadow .bottom-left,
+.app.meadow textarea {
+  background-color: rgba(255, 192, 203, 0.4); /* light pink transparent */
+  color: #651334; /* warm brown text for contrast */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.app.meadow textarea,
+.app.meadow input[type="text"] {
+  background-color: rgba(161, 131, 148, 0.2); /* softer inner fill */
+  color: #4a2c2a;
+  border: 1px solid rgba(217, 204, 204, 0.2);
+}
+
+.app.meadow .pomodoro-wrapper button {
+  background-color: rgba(233, 149, 182, 0.928); /* rosier pink */
+  color: #6a143c;
+  border: none;
+  border-radius: 6px;
+}
+
+.app.meadow .pomodoro-wrapper button:hover {
+  background-color: rgba(255, 160, 200, 1);
+}
+
+
+
+/* ======== STARS AESTHETIC ================ */
+.app.stars {
+  background: url('./assets/STARS.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Josefin Sans', sans-serif; /* or any dreamy font */
+}
+
+/* Optional: cosmic dark overlay */
+.app.stars::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 0, 30, 0.4); /* dark purple overlay */
+  z-index: -1;
+}
+
+/* Stars widget styling — transparent purple panels */
+.app.stars .card,
+.app.stars .pomodoro-timer-box,
+.app.stars .bottom-left,
+.app.stars textarea {
+  background-color: rgba(90, 70, 140, 0.4); /* spacey purple with transparency */
+  color: #f8e8ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional: notes + inputs */
+.app.stars textarea,
+.app.stars input[type="text"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f8e8ff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Optional: timer buttons for stars aesthetic */
+.app.stars .pomodoro-wrapper button {
+  background-color: rgba(120, 90, 190, 0.9); /* soft purple */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+.app.stars .pomodoro-wrapper button:hover {
+  background-color: rgba(120, 90, 190, 1);
+}
+
+
+
+
+/* ======== VINTAGE JAZZ AESTHETIC ================ */
+.app.vintage-jazz {
+  background: url('./assets/JAZZ2.jpeg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Georgia', serif; /* Optional vintage-feel font */
+}
+
+/* Warm sepia overlay */
+.app.vintage-jazz::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(60, 30, 0, 0.3); /* subtle brown overlay */
+  z-index: -1;
+}
+
+/* Section styling — reddish-orange transparent */
+.app.vintage-jazz .card,
+.app.vintage-jazz .pomodoro-timer-box,
+.app.vintage-jazz .bottom-left,
+.app.vintage-jazz textarea {
+  background-color: rgba(178, 34, 34, 0.45); /* firebrick reddish-orange with transparency */
+  color: #fff8f2;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Notes + Input fields */
+.app.vintage-jazz textarea,
+.app.vintage-jazz input[type="text"] {
+  background-color: rgba(255, 240, 230, 0.1); /* light tint */
+  color: #fff8f2;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Buttons */
+.app.vintage-jazz .pomodoro-wrapper button {
+  background-color: rgba(237, 223, 144, 0.603); /* deep vintage red */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+.app.vintage-jazz .pomodoro-wrapper button:hover {
+  background-color: rgba(165, 42, 42, 1);
+}
+
+
+
+/* ======== SNOW AESTHETIC ================ */
+.app.snow {
+  background: url('./assets/SNOWW.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Quicksand', sans-serif; /* Optional cozy winter font */
+}
+
+/* Frosty overlay */
+.app.snow::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 20, 40, 0.3); /* Subtle cool-blue overlay */
+  z-index: -1;
+}
+
+/* Frosted glass look for all sections */
+.app.snow .card,
+.app.snow .pomodoro-timer-box,
+.app.snow .bottom-left,
+.app.snow textarea {
+  background-color: rgba(255, 255, 255, 0.25); /* Soft white frost */
+  color: #1a1a1a; /* Dark text for contrast */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+/* Inputs and text areas */
+.app.snow textarea,
+.app.snow input[type="text"] {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Buttons — icy blue */
+.app.snow .pomodoro-wrapper button {
+  background-color: rgba(173, 216, 230, 1); /* Light blue */
+  color: #1a1a1a;
+  border: none;
+  border-radius: 6px;
+}
+
+.app.snow .pomodoro-wrapper button:hover {
+  background-color: rgba(173, 216, 230, 0.40);
+}
+
+
+
+/* ======== LIBRARY AESTHETIC ================ */
+.app.library {
+  background: url('./assets/LIBRARY.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Georgia', serif; /* Optional: scholarly look */
+}
+
+.app.library::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 10, 5, 0.4); /* cozy overlay */
+  z-index: -1;
+}
+
+/* Transparent maroon boxes for library */
+.app.library .card,
+.app.library .pomodoro-timer-box,
+.app.library .bottom-left,
+.app.library textarea {
+  background-color: rgba(175, 105, 31, 0.45); /* maroon-ish */
+  color: #f8e9e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional: text input styling */
+.app.library textarea,
+.app.library input[type="text"] {
+  background-color: rgba(255, 240, 230, 0.1);
+  color: #f8e9e0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Optional: button styling */
+.app.library .pomodoro-wrapper button {
+  background-color: rgba(173, 101, 54, 0.9);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+.app.library .pomodoro-wrapper button:hover {
+  background-color: rgba(100, 30, 30, 1);
+}
+
+
+
+/* ======== OCEAN AESTHETIC ================ */
+.app.ocean {
+  background: url('./assets/OCEAN1.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif; /* Clean, airy font */
+}
+
+.app.ocean::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 30, 40, 0.4); /* Cool deep-sea overlay */
+  z-index: -1;
+}
+
+/* Ocean transparent teal cards */
+.app.ocean .card,
+.app.ocean .pomodoro-timer-box,
+.app.ocean .bottom-left,
+.app.ocean textarea {
+  background-color: rgba(0, 90, 120, 0.4); /* teal/sea blue */
+  color: #e0f7fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Input + Textarea fields */
+.app.ocean textarea,
+.app.ocean input[type="text"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e0f7fa;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Ocean button styling */
+.app.ocean .pomodoro-wrapper button {
+  background-color: rgba(0, 105, 135, 0.9); /* deeper blue */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+.app.ocean .pomodoro-wrapper button:hover {
+  background-color: rgba(0, 105, 135, 1);
+}
+
+
+
+
+/* ======== CAFE AESTHETIC ================ */
+.app.cafe {
+  background: url('./assets/CAFE2.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Georgia', serif; /* classic coffeehouse feel */
+}
+
+.app.cafe::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(40, 20, 10, 0.3); /* warm coffee overlay */
+  z-index: -1;
+}
+
+/* Cafe section boxes — light coffee w/ transparency */
+.app.cafe .card,
+.app.cafe .pomodoro-timer-box,
+.app.cafe .bottom-left,
+.app.cafe textarea {
+  background-color: rgba(111, 78, 55, 0.4); /* mocha brown */
+  color: #fff3e6;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Input + Textarea fields */
+.app.cafe textarea,
+.app.cafe input[type="text"] {
+  background-color: rgba(255, 248, 230, 0.15); /* latte-ish fill */
+  color: #fff3e6;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Cafe buttons */
+.app.cafe .pomodoro-wrapper button {
+  background-color: rgba(160, 82, 45, 0.9); /* rich coffee */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+.app.cafe .pomodoro-wrapper button:hover {
+  background-color: rgba(160, 82, 45, 1);
+}
+
+
+
+/* ======== ISLAND AESTHETIC ================ */
+.app.island {
+  background: url('./assets/ISLAND2.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Quicksand', sans-serif; /* light tropical feel */
+}
+
+.app.island::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 128, 128, 0.3); /* tropical blue-green overlay */
+  z-index: -1;
+}
+
+/* Island section boxes — ocean teal with transparency */
+.app.island .card,
+.app.island .pomodoro-timer-box,
+.app.island .bottom-left,
+.app.island textarea {
+  background-color: rgba(0, 102, 102, 0.4); /* sea foam box */
+  color: #e0fff7;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Text areas and input fields */
+.app.island textarea,
+.app.island input[type="text"] {
+  background-color: rgba(240, 255, 255, 0.15); /* light aqua fill */
+  color: #e0fff7;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Island-themed buttons */
+.app.island .pomodoro-wrapper button {
+  background-color: rgba(0, 153, 153, 0.85); /* tropical teal */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+}
+
+.app.island .pomodoro-wrapper button:hover {
+  background-color: rgba(0, 153, 153, 1);
+}
+
+
+
+/* ======== GLAMOUR AESTHETIC ================ */
+.app.glamour {
+  background: url('./assets/GLAMOUR2.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Playfair Display', serif; /* Optional: classy serif font */
+}
+
+/* Optional overlay for richness */
+.app.glamour::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(60, 0, 0, 0.4); /* Subtle wine red tint */
+  z-index: -1;
+}
+
+/* Glamour widget styling — deep red transparent boxes */
+.app.glamour .card,
+.app.glamour .pomodoro-timer-box,
+.app.glamour .bottom-left,
+.app.glamour textarea {
+  background-color: rgba(139, 0, 0, 0.45); /* Dark red (burgundy) */
+  color: #ffe6e6; /* Soft champagne white */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.app.glamour .bottom-left {
+  background-color: rgba(139, 0, 0, 0.45); /* Match other boxes */
+  color: #ffe6e6;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+.app.glamour .pomodoro-wrapper button {
+  background-color: rgba(165, 42, 42, 0.9); /* Red-brown */
+  color: #fff0f0;
+  border: none;
+  border-radius: 8px;
+}
+
+.app.glamour .pomodoro-wrapper button:hover {
+  background-color: rgba(139, 0, 0, 0.45);
+}
+
+/* ========== SUNBURST AESTHETIC ========== */
+.app.sunburst {
+  background: url('/assets/Sunburst.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Optional glowing overlay */
+.app.sunburst::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 94, 0, 0.15); /* soft orange glow */
+  z-index: -1;
+}
+
+/* Transparent sunburst boxes */
+.app.sunburst .card,
+.app.sunburst .pomodoro-timer-box,
+.app.sunburst .bottom-left,
+.app.sunburst textarea {
+  background-color: rgba(255, 105, 180, 0.4); /* hot pink glassy */
+  color: #fffdfd;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(255, 70, 70, 0.5);
+}
+
+/* Buttons */
+.app.sunburst .pomodoro-wrapper button {
+  background-color: rgba(255, 50, 100, 0.85);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+}
+
+.app.sunburst .pomodoro-wrapper button:hover {
+  background-color: rgba(255, 80, 120, 0.9);
+}
+
+.google-login-box {
+  margin-top: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.google-login-box button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #db4437;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.google-calendar-connect {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 7rem 2rem; 
+  min-width: 280px;
+  min-height: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 999;
+}
+
+
+.google-calendar-connect:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
