@@ -449,7 +449,7 @@
 .app.library {
   background: url('/assets/LIBRARY.png') no-repeat center center fixed;
   background-size: cover;
-  font-family: 'Georgia', serif; /* Optional: scholarly look */
+  font-family: 'Georgia', serif;
 }
 
 .app.library::before {

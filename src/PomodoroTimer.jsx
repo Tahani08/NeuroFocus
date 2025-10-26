@@ -54,7 +54,7 @@ const PomodoroTimer = ({ pomodoroTime, shortBreakTime, longBreakTime, onOpenSett
   const handleModeChange = (newMode) => {
     setIsRunning(false);
     setMode(newMode);
-    setSecondsLeft(getTimeForMode(newMode)); // ✅ reset timer value immediately
+    setSecondsLeft(getTimeForMode(newMode));
   };
 
   const formatTime = (totalSecs) => {

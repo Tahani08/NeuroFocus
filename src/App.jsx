@@ -14,7 +14,7 @@ function App() {
   const [longBreakTime, setLongBreakTime] = useState(15 * 60);
   const [showSettings, setShowSettings] = useState(false);
 
-  const [isMuted, setIsMuted] = useState(false); // ⬅️ Sound toggle
+  const [isMuted, setIsMuted] = useState(false); 
   const audioRef = useRef(null); // ⬅️ Reference to the <audio> tag
 
   const toggleMute = () => {

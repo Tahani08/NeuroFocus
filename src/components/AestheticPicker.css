@@ -43,7 +43,6 @@
   transition: all 0.2s ease-in-out;
 }
 
-/* Hover only scales – does NOT change colors */
 .aesthetic-btn:hover {
   transform: scale(1.05);
 }
