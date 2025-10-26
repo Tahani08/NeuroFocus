@@ -191,7 +191,6 @@
   }
 }
 
-
 /* ======== CABIN AESTHETIC ================ */
 .app.cabin {
   background: url('/assets/CABIN.png') no-repeat center center fixed;
@@ -646,12 +645,11 @@
 }
 
 
-
 /* ======== GLAMOUR AESTHETIC ================ */
 .app.glamour {
   background: url('/assets/GLAMOUR2.png') no-repeat center center fixed;
   background-size: cover;
-  font-family: 'Playfair Display', serif; /* Optional: classy serif font */
+  font-family: 'Quicksand', sans-serif; /* Optional: classy serif font */
 }
 
 /* Optional overlay for richness */

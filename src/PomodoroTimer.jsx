@@ -1,69 +1,71 @@
 import { useState, useEffect } from 'react';
 
+const DEFAULT_POMODORO = 25 * 60;
+const DEFAULT_SHORT_BREAK = 5 * 60;
+const DEFAULT_LONG_BREAK = 15 * 60;
+
 const PomodoroTimer = ({ pomodoroTime, shortBreakTime, longBreakTime, onOpenSettings }) => {
-  const [secondsLeft, setSecondsLeft] = useState(pomodoroTime);
+  const getTimeForMode = (mode) => {
+    if (mode === 'Pomodoro') return pomodoroTime || DEFAULT_POMODORO;
+    if (mode === 'Short Break') return shortBreakTime || DEFAULT_SHORT_BREAK;
+    if (mode === 'Long Break') return longBreakTime || DEFAULT_LONG_BREAK;
+    return DEFAULT_POMODORO;
+  };
+
+  const [mode, setMode] = useState('Pomodoro');
+  const [secondsLeft, setSecondsLeft] = useState(getTimeForMode('Pomodoro'));
   const [isRunning, setIsRunning] = useState(false);
-  const [mode, setMode] = useState("Pomodoro");
   const [completed, setCompleted] = useState(0);
 
+  // ⏱ Start ticking
   useEffect(() => {
-    if (mode === "Pomodoro") setSecondsLeft(pomodoroTime);
-    else if (mode === "Short Break") setSecondsLeft(shortBreakTime);
-    else if (mode === "Long Break") setSecondsLeft(longBreakTime);
-  }, [pomodoroTime, shortBreakTime, longBreakTime, mode]);
-
-  useEffect(() => {
-    let interval;
+    let timer = null;
     if (isRunning) {
-      interval = setInterval(() => {
+      timer = setInterval(() => {
         setSecondsLeft((prev) => (prev > 0 ? prev - 1 : 0));
       }, 1000);
     }
-    return () => clearInterval(interval);
+    return () => clearInterval(timer);
   }, [isRunning]);
 
-  useEffect(() => {
-    const formatted = formatTime(secondsLeft);
-    document.title = isRunning ? `${formatted} - Time to focus!` : `⏱ ${mode}`;
-  }, [secondsLeft, isRunning, mode]);
-
+  // ⏰ Handle timer reaching 0
   useEffect(() => {
     if (secondsLeft === 0 && isRunning) {
       setIsRunning(false);
       new Audio("/alarm.mp3").play();
-
       if (mode === "Pomodoro") {
         setCompleted((prev) => prev + 1);
         setMode("Short Break");
-        setSecondsLeft(shortBreakTime);
+        setSecondsLeft(getTimeForMode("Short Break"));
       } else {
         setMode("Pomodoro");
-        setSecondsLeft(pomodoroTime);
+        setSecondsLeft(getTimeForMode("Pomodoro"));
       }
     }
-  }, [secondsLeft, isRunning, mode, pomodoroTime, shortBreakTime]);
+  }, [secondsLeft, isRunning]);
 
-  const formatTime = (secs) => {
-    const m = Math.floor(secs / 60);
-    const s = secs % 60;
-    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  // 📣 Update title
+  useEffect(() => {
+    const formatted = formatTime(secondsLeft);
+    document.title = isRunning ? `${formatted} - ${mode}` : `⏱ ${mode}`;
+  }, [secondsLeft, isRunning, mode]);
+
+  // 🧠 When user clicks a mode button
+  const handleModeChange = (newMode) => {
+    setIsRunning(false);
+    setMode(newMode);
+    setSecondsLeft(getTimeForMode(newMode)); // ✅ reset timer value immediately
   };
 
-  const handleModeChange = (newMode) => {
-    setMode(newMode);
-    setIsRunning(false);
+  const formatTime = (totalSecs) => {
+    const m = Math.floor(totalSecs / 60);
+    const s = totalSecs % 60;
+    return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
   };
 
   return (
     <div className="pomodoro-timer-box" style={{ position: 'relative' }}>
-      {/* ✅ Top-right settings icon */}
-      <button
-        className="settings-button settings-top-right"
-        onClick={() => {
-          console.log("Settings button clicked ✅");
-          onOpenSettings(); // open modal
-        }}
-      >
+      <button className="settings-button settings-top-right" onClick={onOpenSettings}>
         ⚙️
       </button>
 
@@ -76,7 +78,7 @@ const PomodoroTimer = ({ pomodoroTime, shortBreakTime, longBreakTime, onOpenSett
         <button onClick={() => handleModeChange("Long Break")}>Long Break</button>
       </div>
 
-      <button className="start-button" onClick={() => setIsRunning((prev) => !prev)}>
+      <button className="start-button" onClick={() => setIsRunning(!isRunning)}>
         {isRunning ? "Stop" : "Start"}
       </button>
 

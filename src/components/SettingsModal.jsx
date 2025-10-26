@@ -49,4 +49,4 @@ function SettingsModal({ onClose, setPomodoro, setShortBreak, setLongBreak }) {
   );
 }
 
-export default SettingsModal; // ✅ THIS LINE FIXES YOUR ERROR
+export default SettingsModal;

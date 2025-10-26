@@ -17,12 +17,13 @@ const aesthetics = [
 export default function AestheticPicker({ setSelectedAesthetic }) {
   return (
     <div className="aesthetic-picker">
-      <h4>Aesthetic</h4>
+      <h4>Cognitive Palette</h4>
+      <p>Select the environment that supports your focus style.</p>
       <div className="aesthetic-buttons">
         {aesthetics.map((theme) => (
           <button
             key={theme}
-            className={`aesthetic-btn ${theme}`}  // ✅ HERE
+            className={`aesthetic-btn ${theme}`} 
             onClick={() => setSelectedAesthetic(theme)}
           >
             {theme}

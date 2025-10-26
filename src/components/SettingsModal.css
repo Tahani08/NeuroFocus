@@ -12,7 +12,7 @@
 
 .modal {
   background: #fff;
-  color: #111;  /* ✅ ensure all text is dark */
+  color: #111;  /* ensure all text is dark */
   padding: 2rem;
   border-radius: 12px;
   width: 300px;
@@ -32,7 +32,7 @@
   font-size: 1rem;
   border: 1px solid #ccc;
   background-color: #f4f4f4;
-  color: #111; /* ✅ input text visible */
+  color: #111; /* input text visible */
   border-radius: 6px;
 }
 
